@@ -23,8 +23,8 @@
 		090B082A291E6AF80050F039 /* CategoryStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0829291E6AF80050F039 /* CategoryStatusView.swift */; };
 		090B082C291E6B040050F039 /* CategoryGageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082B291E6B040050F039 /* CategoryGageView.swift */; };
 		090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */; };
-		090B0830291E6B190050F039 /* ExpenditureDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082F291E6B190050F039 /* ExpenditureDetailView.swift */; };
 		090B0832291E6B220050F039 /* ExpenditureModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0831291E6B220050F039 /* ExpenditureModalView.swift */; };
+		090B0834291E976B0050F039 /* Total.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0833291E976B0050F039 /* Total.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +43,8 @@
 		090B0829291E6AF80050F039 /* CategoryStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStatusView.swift; sourceTree = "<group>"; };
 		090B082B291E6B040050F039 /* CategoryGageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGageView.swift; sourceTree = "<group>"; };
 		090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureCardView.swift; sourceTree = "<group>"; };
-		090B082F291E6B190050F039 /* ExpenditureDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureDetailView.swift; sourceTree = "<group>"; };
 		090B0831291E6B220050F039 /* ExpenditureModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureModalView.swift; sourceTree = "<group>"; };
+		090B0833291E976B0050F039 /* Total.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Total.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +119,7 @@
 		090B0810291E67B00050F039 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				090B0833291E976B0050F039 /* Total.swift */,
 				090B0814291E67DE0050F039 /* Category.swift */,
 				090B081D291E693E0050F039 /* Expenditure.swift */,
 			);
@@ -149,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */,
-				090B082F291E6B190050F039 /* ExpenditureDetailView.swift */,
 				090B0831291E6B220050F039 /* ExpenditureModalView.swift */,
 			);
 			path = Expenditure;
@@ -234,6 +234,7 @@
 			files = (
 				090B082A291E6AF80050F039 /* CategoryStatusView.swift in Sources */,
 				090B0801291E67900050F039 /* InsertCoinApp.swift in Sources */,
+				090B0834291E976B0050F039 /* Total.swift in Sources */,
 				090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */,
 				090B0828291E6AEB0050F039 /* CategoryAddView.swift in Sources */,
 				090B0824291E6AD50050F039 /* CategoryCardView.swift in Sources */,
@@ -243,7 +244,6 @@
 				090B0815291E67DE0050F039 /* Category.swift in Sources */,
 				090B081E291E693E0050F039 /* Expenditure.swift in Sources */,
 				090B0832291E6B220050F039 /* ExpenditureModalView.swift in Sources */,
-				090B0830291E6B190050F039 /* ExpenditureDetailView.swift in Sources */,
 				090B082C291E6B040050F039 /* CategoryGageView.swift in Sources */,
 				090B0826291E6AE20050F039 /* CategoryDetailView.swift in Sources */,
 			);

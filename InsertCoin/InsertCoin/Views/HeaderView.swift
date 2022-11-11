@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HeaderView: View {
+
+    @ObservedResults(Category.self) var categories
+    
+    @State private var totalBudget: Double = 0
+
     var body: some View {
-        Text("HeaderView")
+        Text("")
+        ForEach(categories, id: \.id) { category in
+            totalBudget += category.budget
+        }
+        
     }
 }
 
