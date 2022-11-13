@@ -13,15 +13,19 @@ struct CategoryStatusView: View {
     @ObservedRealmObject var category: Category
 
     var body: some View {
-        if category.totalOutlay >= 0 && category.totalOutlay <= round((category.budget) * 0.4) {
-            Text("😎")
-        } else if category.totalOutlay > round(category.budget * 0.4) && category.totalOutlay <= round(category.budget * 0.8) {
-            Text("🤔")
-        } else if category.totalOutlay > round(category.budget * 0.8) && category.totalOutlay < category.budget {
-            Text("🚨")
-        } else if category.totalOutlay >= category.budget {
-            Text("☠️")
+        VStack {
+            if category.totalOutlay >= 0 && category.totalOutlay <= round((category.budget) * 0.4) {
+                Text("😎")
+            } else if category.totalOutlay > round(category.budget * 0.4) && category.totalOutlay <= round(category.budget * 0.8) {
+                Text("🤔")
+            } else if category.totalOutlay > round(category.budget * 0.8) && category.totalOutlay < category.budget {
+                Text("🚨")
+            } else if category.totalOutlay >= category.budget {
+                Text("☠️")
+            }
         }
+        .frame(width: 50, height: 50)
+        .font(.title)
     }
 }
 

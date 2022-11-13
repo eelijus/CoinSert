@@ -15,11 +15,26 @@ struct HeaderView: View {
     @State private var totalBudget: Double = 0
 
     var body: some View {
-        Text("")
-        ForEach(categories, id: \.id) { category in
-            totalBudget += category.budget
+
+        ZStack {
+            Rectangle()
+                .fill(Color.headerColor)
+                .frame(height: 200)
+            VStack {
+                Text("Total Outlay")
+                    .offset(x: 15, y: -50)
+                    .font(.largeTitle)
+                HStack {
+                    Text("current available")
+                        .offset(x:20)
+                    Spacer()
+                    Text("Total Budget")
+                }
+            }
+            .offset(x: -10, y: 15)
+
         }
-        
+        .background(Color.headerColor)
     }
 }
 

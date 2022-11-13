@@ -11,41 +11,34 @@ import RealmSwift
 struct HomeView: View {
     
     @ObservedResults(Category.self) var categories
+    @ObservedResults(Total.self) var total
+
     @State private var isPresented: Bool = false
 
     var body: some View {
         NavigationView {
             VStack {
                 HeaderView()
-                    List {
-                        ForEach(categories, id: \.id) { category in
-                            HStack {
-                                NavigationLink {
-                                    CategoryDetailView(category: category)
-                                } label: {
-                                    CategoryCardView(category: category)
-                                }
-                                Button {
-                                    isPresented = true
-                                } label: {
-                                    Text(category.icon)
-                                }
-                                .sheet(isPresented: $isPresented) {
-                                    ExpenditureModalView(category: category)
-                                }
-                            }
-
-                        }
+                ScrollView {
+                    ForEach(categories, id: \.id) { category in
+                            CategoryCardView(category: category)
                     }
+                }
             }
             .navigationBarItems(trailing: NavigationLink(
                 destination: CategoryAddView()
             ) {
-               Text("💎")
-                    .font(.largeTitle)
+               Text("🤑")
+                    .font(.title)
             })
         }
     }
+    
+
+}
+
+extension Color {
+    static let headerColor = Color("HeaderColor")
 }
 
 struct HomeView_Previews: PreviewProvider {

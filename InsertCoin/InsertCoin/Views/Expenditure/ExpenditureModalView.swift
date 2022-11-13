@@ -32,23 +32,33 @@ struct ExpenditureModalView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    Text(category.name)
-                        .font(.largeTitle)
-                } header: {
+            VStack() {
+                VStack {
                     Text(category.icon)
+                        .font(.largeTitle)
+                    Text(category.name)
+                        .font(.title2)
                 }
-                Section {
-                    TextField("name", text: $name)
-                    TextField("amount", text: $amount)
-                    DatePicker("date", selection: $date)
-                        .datePickerStyle(.compact)
-                        .labelsHidden()
-                } header: {
-                    Text("💸")
+                .foregroundColor(.black)
+                .padding()
+                List {
+                    Section {
+                        TextField("Name", text: $name)
+                        TextField("Amount", text: $amount)
+                        HStack {
+                            Text("Date")
+                                .foregroundColor(.gray)
+                            Spacer()
+                            DatePicker("", selection: $date)
+                                .datePickerStyle(.compact)
+                                .labelsHidden()
+                        }
+                    } header: {
+                        Text("💸")
+                            .font(.largeTitle)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
                 }
-                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

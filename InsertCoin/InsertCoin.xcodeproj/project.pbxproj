@@ -21,10 +21,11 @@
 		090B0826291E6AE20050F039 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0825291E6AE20050F039 /* CategoryDetailView.swift */; };
 		090B0828291E6AEB0050F039 /* CategoryAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0827291E6AEB0050F039 /* CategoryAddView.swift */; };
 		090B082A291E6AF80050F039 /* CategoryStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0829291E6AF80050F039 /* CategoryStatusView.swift */; };
-		090B082C291E6B040050F039 /* CategoryGageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082B291E6B040050F039 /* CategoryGageView.swift */; };
+		090B082C291E6B040050F039 /* CategoryGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082B291E6B040050F039 /* CategoryGaugeView.swift */; };
 		090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */; };
 		090B0832291E6B220050F039 /* ExpenditureModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0831291E6B220050F039 /* ExpenditureModalView.swift */; };
 		090B0834291E976B0050F039 /* Total.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0833291E976B0050F039 /* Total.swift */; };
+		090B0836291E9A3B0050F039 /* TotalAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0835291E9A3B0050F039 /* TotalAmount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +42,11 @@
 		090B0825291E6AE20050F039 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		090B0827291E6AEB0050F039 /* CategoryAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAddView.swift; sourceTree = "<group>"; };
 		090B0829291E6AF80050F039 /* CategoryStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStatusView.swift; sourceTree = "<group>"; };
-		090B082B291E6B040050F039 /* CategoryGageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGageView.swift; sourceTree = "<group>"; };
+		090B082B291E6B040050F039 /* CategoryGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGaugeView.swift; sourceTree = "<group>"; };
 		090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureCardView.swift; sourceTree = "<group>"; };
 		090B0831291E6B220050F039 /* ExpenditureModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureModalView.swift; sourceTree = "<group>"; };
 		090B0833291E976B0050F039 /* Total.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Total.swift; sourceTree = "<group>"; };
+		090B0835291E9A3B0050F039 /* TotalAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		090B080F291E67A80050F039 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				090B0835291E9A3B0050F039 /* TotalAmount.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -141,7 +144,7 @@
 				090B0825291E6AE20050F039 /* CategoryDetailView.swift */,
 				090B0827291E6AEB0050F039 /* CategoryAddView.swift */,
 				090B0829291E6AF80050F039 /* CategoryStatusView.swift */,
-				090B082B291E6B040050F039 /* CategoryGageView.swift */,
+				090B082B291E6B040050F039 /* CategoryGaugeView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				090B082A291E6AF80050F039 /* CategoryStatusView.swift in Sources */,
 				090B0801291E67900050F039 /* InsertCoinApp.swift in Sources */,
 				090B0834291E976B0050F039 /* Total.swift in Sources */,
+				090B0836291E9A3B0050F039 /* TotalAmount.swift in Sources */,
 				090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */,
 				090B0828291E6AEB0050F039 /* CategoryAddView.swift in Sources */,
 				090B0824291E6AD50050F039 /* CategoryCardView.swift in Sources */,
@@ -244,7 +248,7 @@
 				090B0815291E67DE0050F039 /* Category.swift in Sources */,
 				090B081E291E693E0050F039 /* Expenditure.swift in Sources */,
 				090B0832291E6B220050F039 /* ExpenditureModalView.swift in Sources */,
-				090B082C291E6B040050F039 /* CategoryGageView.swift in Sources */,
+				090B082C291E6B040050F039 /* CategoryGaugeView.swift in Sources */,
 				090B0826291E6AE20050F039 /* CategoryDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
