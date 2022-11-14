@@ -22,8 +22,8 @@ struct CategoryAddView: View {
         NavigationView {
             List {
                 Section {
-                    TextField("Category name", text: $name)
                     TextField("Category icon", text: $icon)
+                    TextField("Category name", text: $name)
                 } header: {
                     Text("😎")
                 }

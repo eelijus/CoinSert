@@ -13,15 +13,16 @@ struct ExpenditureCardView: View {
 
     var body: some View {
         HStack {
-            Rectangle()
-                .fill(.black)
-                .frame(width: 3)
             VStack{
                 Text(expenditure.name)
-                Text(expenditure.date.formatted(date: .omitted, time: .shortened))
+                Text(String(Int(expenditure.amount)))
+                    .font(.title2)
             }
             Spacer()
-            Text(String(expenditure.amount))
+            VStack {
+//                Text(expenditure.date.formatted(date: .numeric, time: .omitted))
+                Text(expenditure.date.formatted(date: .omitted, time: .shortened))
+            }
         }
     }
 }

@@ -13,6 +13,19 @@ struct HeaderView: View {
     @ObservedResults(Category.self) var categories
     
     @State private var totalBudget: Double = 0
+    
+//    private func getTotalBudget() -> Int {
+//        var totalBudget: Int = 0
+//        if categories.count == 0 {
+//            return 0
+//        } else {
+//            for i in 0...categories.count {
+//                totalBudget += Int(categories[i].budget)
+//            }
+//            return totalBudget
+//        }
+//
+//    }
 
     var body: some View {
 
@@ -21,7 +34,9 @@ struct HeaderView: View {
                 .fill(Color.headerColor)
                 .frame(height: 200)
             VStack {
-                Text("Total Outlay")
+                Text("Period")
+                    .offset(x: 15, y: -70)
+                Text("TotalOutlay")
                     .offset(x: 15, y: -50)
                     .font(.largeTitle)
                 HStack {

@@ -13,8 +13,8 @@ class Total: Object, Identifiable {
     @ObservedResults(Category.self) var categories
 
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var budget: Int
-    @Persisted var outlay: Int
+    @Persisted var budget: Double
+    @Persisted var outlay: Double
     
 //    override init() {
 //        getTotalBudget()
@@ -22,19 +22,19 @@ class Total: Object, Identifiable {
 //    }
     
     func getTotalBudget() {
-        var totalBudget: Int = 0
+        var totalBudget: Double = 0
         
         for i in 0..<categories.count {
-            totalBudget += Int(categories[i].budget)
+            totalBudget += categories[i].budget
         }
         self.budget = totalBudget
     }
     
     func getTotalOutlay() {
-        var totalOutlay: Int = 0
+        var totalOutlay: Double = 0
         
         for i in 0..<categories.count {
-            totalOutlay += Int(categories[i].totalOutlay)
+            totalOutlay += categories[i].totalOutlay
         }
         self.outlay = totalOutlay
     }

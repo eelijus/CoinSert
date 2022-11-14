@@ -19,16 +19,13 @@ struct CategoryGaugeView: View {
             Gauge(value: category.totalOutlay, in: 0...category.budget) {
                 Text("")
             } currentValueLabel: {
+                Text("")
+            } minimumValueLabel: {
                 Text("\(Int(category.totalOutlay))")
                     .foregroundColor(.black)
-            } minimumValueLabel: {
-                Text("0")
-                    .foregroundColor(.black)
-
             } maximumValueLabel: {
                 Text("\(Int(category.budget))")
                     .foregroundColor(.black)
-
             }
         }
         .gaugeStyle(.linearCapacity)

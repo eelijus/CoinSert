@@ -24,15 +24,29 @@ struct CategoryDetailView: View {
     
     var body: some View {
             VStack {
-                if !isEditing {
-                    Text(category.icon)
-                    Text(category.name)
-                    Text(String(category.budget))
-                } else {
-                    TextField("icon : \(category.icon)", text: $icon)
-                    TextField(category.name, text: $name)
-                    TextField(String(category.budget), text: $budget)
-                }
+
+                    if !isEditing {
+                        VStack(spacing: 15) {
+                            HStack(spacing: 20) {
+                                Text(category.icon)
+                                    .font(.title)
+                                Text(category.name)
+                            }
+                            Text(String(Int(category.budget)))
+                                .font(.title2)
+                        }
+                    
+                    } else {
+                        VStack {
+                            TextField(category.icon, text: $icon)
+                            TextField(category.name, text: $name)
+                            TextField(String(category.budget), text: $budget)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+
+                    }
+                
+
                 Button(action: {
                     if isEditing {
                         update()
@@ -41,6 +55,7 @@ struct CategoryDetailView: View {
                 }, label: {
                     Text(isEditing == false ? "Edit" : "Save")
                 })
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
                 List {
                     ForEach(category.expenditures, id: \.id) { expenditure in
                         ExpenditureCardView(expenditure: expenditure)
