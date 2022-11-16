@@ -12,21 +12,6 @@ struct HeaderView: View {
 
     @ObservedResults(Category.self) var categories
     
-    @State private var totalBudget: Double = 0
-    
-//    private func getTotalBudget() -> Int {
-//        var totalBudget: Int = 0
-//        if categories.count == 0 {
-//            return 0
-//        } else {
-//            for i in 0...categories.count {
-//                totalBudget += Int(categories[i].budget)
-//            }
-//            return totalBudget
-//        }
-//
-//    }
-
     var body: some View {
 
         ZStack {
@@ -36,20 +21,38 @@ struct HeaderView: View {
             VStack {
                 Text("Period")
                     .offset(x: 15, y: -70)
-                Text("TotalOutlay")
+                Text(String(getTotalOutlay()))
                     .offset(x: 15, y: -50)
                     .font(.largeTitle)
                 HStack {
-                    Text("current available")
+                    Text(String(getTotalBudget() - getTotalOutlay()))
                         .offset(x:20)
                     Spacer()
-                    Text("Total Budget")
+                    Text(String(getTotalBudget()))
                 }
             }
             .offset(x: -10, y: 15)
 
         }
         .background(Color.headerColor)
+    }
+    
+    func getTotalBudget() -> Int {
+        var totalBudget: Double = 0
+        
+        for i in 0..<categories.count {
+            totalBudget += categories[i].budget
+        }
+        return Int(totalBudget)
+    }
+    
+    func getTotalOutlay() -> Int {
+        var totalOutlay: Double = 0
+        
+        for i in 0..<categories.count {
+            totalOutlay += categories[i].totalOutlay
+        }
+        return Int(totalOutlay)
     }
 }
 

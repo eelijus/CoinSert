@@ -62,8 +62,16 @@ struct CategoryDetailView: View {
                             .onTapGesture {
                                 selectedExpenditure = expenditure
                             }
+                            .swipeActions(edge: .trailing) {
+                                Button {
+                                    minusExpenditure(minusAmount: expenditure.amount)
+                                    deleteExpenditure(expenditure: expenditure)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                                .tint(.red)
+                            }
                     }
-                    .onDelete(perform: $category.expenditures.remove)
                     .sheet(item: $selectedExpenditure) { expenditure in
                         ExpenditureModalView(category: category, expenditrueToEdit: expenditure)
                     }
@@ -84,6 +92,33 @@ struct CategoryDetailView: View {
                         }
                 }
             }
+    }
+    
+    private func deleteExpenditure(expenditure: Expenditure) {
+        do {
+            let realm = try Realm()
+            
+            guard let expenditureToDelete = realm.object(ofType: Expenditure.self, forPrimaryKey: expenditure.id) else { return }
+            try realm.write {
+                realm.delete(expenditureToDelete)
+            }
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    private func minusExpenditure(minusAmount: Double) {
+        do {
+            let realm = try Realm()
+            guard let minusedCategory = realm.object(ofType: Category.self, forPrimaryKey: category.id) else { return }
+            try realm.write {
+                minusedCategory.totalOutlay -= Double(minusAmount) ?? 0
+            }
+        }
+        catch {
+            print(error)
+        }
     }
     
     private func delete(category: Category){
@@ -113,6 +148,7 @@ struct CategoryDetailView: View {
             print(error)
         }
     }
+    
 }
 
 struct CategoryDetailView_Previews: PreviewProvider {

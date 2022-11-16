@@ -25,7 +25,6 @@
 		090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */; };
 		090B0832291E6B220050F039 /* ExpenditureModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0831291E6B220050F039 /* ExpenditureModalView.swift */; };
 		090B0834291E976B0050F039 /* Total.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0833291E976B0050F039 /* Total.swift */; };
-		090B0836291E9A3B0050F039 /* TotalAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0835291E9A3B0050F039 /* TotalAmount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +45,6 @@
 		090B082D291E6B0E0050F039 /* ExpenditureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureCardView.swift; sourceTree = "<group>"; };
 		090B0831291E6B220050F039 /* ExpenditureModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenditureModalView.swift; sourceTree = "<group>"; };
 		090B0833291E976B0050F039 /* Total.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Total.swift; sourceTree = "<group>"; };
-		090B0835291E9A3B0050F039 /* TotalAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalAmount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 		090B080F291E67A80050F039 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				090B0835291E9A3B0050F039 /* TotalAmount.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -238,7 +235,6 @@
 				090B082A291E6AF80050F039 /* CategoryStatusView.swift in Sources */,
 				090B0801291E67900050F039 /* InsertCoinApp.swift in Sources */,
 				090B0834291E976B0050F039 /* Total.swift in Sources */,
-				090B0836291E9A3B0050F039 /* TotalAmount.swift in Sources */,
 				090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */,
 				090B0828291E6AEB0050F039 /* CategoryAddView.swift in Sources */,
 				090B0824291E6AD50050F039 /* CategoryCardView.swift in Sources */,

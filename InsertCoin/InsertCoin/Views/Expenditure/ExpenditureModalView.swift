@@ -26,7 +26,7 @@ struct ExpenditureModalView: View {
         if let expenditrueToEdit = expenditrueToEdit {
             _name = State(initialValue: expenditrueToEdit.name)
             _date = State(initialValue: expenditrueToEdit.date)
-            _amount = State(initialValue: String(expenditrueToEdit.amount))
+            _amount = State(initialValue: String(Int(expenditrueToEdit.amount)))
         }
     }
 
@@ -69,9 +69,12 @@ struct ExpenditureModalView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         if let _ = expenditrueToEdit {
+                            minusExpenditure(minusAmount: expenditrueToEdit!.amount)
                             updateExpenditure()
+                            plusExpenditure()
                         } else {
                             createExpenditure()
+                            plusExpenditure()
                         }
                         dismiss()
                     }
@@ -104,6 +107,32 @@ struct ExpenditureModalView: View {
         newExpenditure.amount = Double(amount) ?? 0
         newExpenditure.date = date
         $category.expenditures.append(newExpenditure)
+    }
+    
+    private func plusExpenditure() {
+        do {
+            let realm = try Realm()
+            guard let plusedCategory = realm.object(ofType: Category.self, forPrimaryKey: category.id) else { return }
+            try realm.write {
+                plusedCategory.totalOutlay += Double(amount) ?? 0
+            }
+        }
+        catch {
+            print(error)
+        }
+    }
+    
+    private func minusExpenditure(minusAmount: Double) {
+        do {
+            let realm = try Realm()
+            guard let minusedCategory = realm.object(ofType: Category.self, forPrimaryKey: category.id) else { return }
+            try realm.write {
+                minusedCategory.totalOutlay -= Double(minusAmount) ?? 0
+            }
+        }
+        catch {
+            print(error)
+        }
     }
 }
 

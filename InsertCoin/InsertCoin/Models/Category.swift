@@ -16,19 +16,19 @@ class Category: Object, Identifiable {
     @Persisted var name: String
     @Persisted var icon: String
     @Persisted var budget: Double
-    @Persisted var totalOutlay: Double 
+    @Persisted var totalOutlay: Double = 0
     @Persisted var expenditures: List<Expenditure> = List<Expenditure>()
     
     override class func primaryKey() -> String? {
         "id"
     }
     
-//   static func getCategoryOutlay() -> Double {
-//        var totalOutlay: Double = 0
-//
-//       for i in 0...self.expenditures.count {
-//            totalOutlay += self.expenditures[i].amount
-//        }
-//        return totalOutlay
-//    }
+   func getCategoryOutlay() -> Double {
+        var totalOutlay: Double = 0
+
+       for i in 0...self.expenditures.count {
+            totalOutlay += self.expenditures[i].amount
+        }
+        return totalOutlay
+    }
 }
