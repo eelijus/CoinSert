@@ -18,13 +18,19 @@ struct CategoryDetailView: View {
     
     @State private var isEditing: Bool = false
     
+    @Binding var currentDate: Date
+    @Binding var currentMonth: Int
+    
     @State private var name: String = ""
     @State private var icon: String = ""
     @State private var budget: String = ""
     
     var body: some View {
+        let monthlyExpenditures = Array(category.expenditures.filter {
+//            isSameMonth(date1: $0.date, date2: currentDate) && getMonthByInt(currentDate) == currentMonth
+            getMonthByInt($0.date) == currentMonth
+        })
             VStack {
-
                     if !isEditing {
                         VStack(spacing: 15) {
                             HStack(spacing: 20) {
@@ -57,10 +63,11 @@ struct CategoryDetailView: View {
                 })
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 20, trailing: 0))
                 List {
-                    ForEach(category.expenditures, id: \.id) { expenditure in
+                    ForEach(monthlyExpenditures, id: \.id) { expenditure in
                         ExpenditureCardView(expenditure: expenditure)
                             .onTapGesture {
                                 selectedExpenditure = expenditure
+                                currentDate = expenditure.date
                             }
                             .swipeActions(edge: .trailing) {
                                 Button {
@@ -73,7 +80,7 @@ struct CategoryDetailView: View {
                             }
                     }
                     .sheet(item: $selectedExpenditure) { expenditure in
-                        ExpenditureModalView(category: category, expenditrueToEdit: expenditure)
+                        ExpenditureModalView(category: category, date: $currentDate, expenditrueToEdit: expenditure)
                     }
                 }
                 
@@ -113,7 +120,7 @@ struct CategoryDetailView: View {
             let realm = try Realm()
             guard let minusedCategory = realm.object(ofType: Category.self, forPrimaryKey: category.id) else { return }
             try realm.write {
-                minusedCategory.totalOutlay -= Double(minusAmount) ?? 0
+                minusedCategory.totalOutlay -= Double(minusAmount)
             }
         }
         catch {
@@ -151,8 +158,8 @@ struct CategoryDetailView: View {
     
 }
 
-struct CategoryDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryDetailView(category: Category())
-    }
-}
+//struct CategoryDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryDetailView(category: Category())
+//    }
+//}

@@ -16,16 +16,17 @@ struct ExpenditureModalView: View {
     var expenditrueToEdit: Expenditure?
     
     @State var name: String = ""
-    @State var date: Date = Date()
+    @Binding var date: Date
     @State var amount: String = ""
     
-    init(category: Category, expenditrueToEdit: Expenditure? = nil) {
+    init(category: Category, date: Binding<Date>, expenditrueToEdit: Expenditure? = nil) {
         self.category = category
+        self._date = date
         self.expenditrueToEdit = expenditrueToEdit
         
         if let expenditrueToEdit = expenditrueToEdit {
             _name = State(initialValue: expenditrueToEdit.name)
-            _date = State(initialValue: expenditrueToEdit.date)
+            _date = date
             _amount = State(initialValue: String(Int(expenditrueToEdit.amount)))
         }
     }
@@ -127,7 +128,7 @@ struct ExpenditureModalView: View {
             let realm = try Realm()
             guard let minusedCategory = realm.object(ofType: Category.self, forPrimaryKey: category.id) else { return }
             try realm.write {
-                minusedCategory.totalOutlay -= Double(minusAmount) ?? 0
+                minusedCategory.totalOutlay -= Double(minusAmount)
             }
         }
         catch {
@@ -136,8 +137,8 @@ struct ExpenditureModalView: View {
     }
 }
 
-struct ExpenditureModalView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExpenditureModalView(category: Category())
-    }
-}
+//struct ExpenditureModalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExpenditureModalView(category: Category())
+//    }
+//}

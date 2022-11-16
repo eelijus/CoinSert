@@ -12,16 +12,19 @@ struct HomeView: View {
     
     @ObservedResults(Category.self) var categories
     @ObservedResults(Total.self) var total
+    
+    @State var currentDate = Date()
+    @State var currentMonth: Int = getMonthByInt(Date())
 
     @State private var isPresented: Bool = false
 
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView()
+                HeaderView(currentDate: $currentDate, currentMonth: $currentMonth)
                 ScrollView {
                     ForEach(categories, id: \.id) { category in
-                            CategoryCardView(category: category)
+                        CategoryCardView(category: category, currentDate: $currentDate, currentMonth: $currentMonth)
                     }
                 }
             }
@@ -34,7 +37,14 @@ struct HomeView: View {
         }
     }
     
-    
+    func getCurrentMonth(_ currentMonth: Int) -> Date {
+        let calendar = Calendar.current
+        // get current month date
+        guard let currentMonth = calendar.date(byAdding: .month, value: currentMonth, to: Date()) else {
+            return Date()
+        }
+        return currentMonth
+    }
     
 
 }
@@ -45,6 +55,6 @@ extension Color {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(currentDate: Date())
     }
 }

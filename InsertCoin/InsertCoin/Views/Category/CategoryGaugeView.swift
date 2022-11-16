@@ -12,16 +12,20 @@ struct CategoryGaugeView: View {
     
     @ObservedRealmObject var category: Category
     let gradient = Gradient(colors: [.green, .yellow, .orange, .red])
+    
+    @Binding var currentDate: Date
+    @Binding var currentMonth: Int
+    
 
 
     var body: some View {
         VStack {
-            Gauge(value: category.totalOutlay, in: 0...category.budget) {
+            Gauge(value: Double(getTotalMonthlyOutlay()), in: 0...category.budget) {
                 Text("")
             } currentValueLabel: {
                 Text("")
             } minimumValueLabel: {
-                Text("\(Int(category.totalOutlay))")
+                Text("\(getTotalMonthlyOutlay())")
                     .foregroundColor(.black)
             } maximumValueLabel: {
                 Text("\(Int(category.budget))")
@@ -30,12 +34,29 @@ struct CategoryGaugeView: View {
         }
         .gaugeStyle(.linearCapacity)
         .tint(gradient)
-
+    }
+    
+    func getTotalMonthlyOutlay() -> Int {
+        let monthlyExpenditures = Array(category.expenditures.filter {
+            getMonthByInt($0.date) == currentMonth
+        })
+        
+        var totalMonthlyOutlay: Double = 0
+        
+        for i in 0..<monthlyExpenditures.count {
+            if !monthlyExpenditures.isEmpty {
+                totalMonthlyOutlay += monthlyExpenditures[i].amount
+            } else {
+                totalMonthlyOutlay = 0
+            }
+        }
+        
+        return Int(totalMonthlyOutlay)
     }
 }
 
-struct CategoryGaugeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryGaugeView(category: Category())
-    }
-}
+//struct CategoryGaugeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryGaugeView(category: Category())
+//    }
+//}
