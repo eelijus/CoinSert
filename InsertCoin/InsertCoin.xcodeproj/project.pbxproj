@@ -27,6 +27,7 @@
 		090B0834291E976B0050F039 /* Total.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090B0833291E976B0050F039 /* Total.swift */; };
 		0965959E2924F30200E725D3 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965959D2924F30200E725D3 /* DateUtils.swift */; };
 		096595A12924F57100E725D3 /* HeaderDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A02924F57100E725D3 /* HeaderDateView.swift */; };
+		096595A32925D68D00E725D3 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A22925D68D00E725D3 /* CategoryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		090B0833291E976B0050F039 /* Total.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Total.swift; sourceTree = "<group>"; };
 		0965959D2924F30200E725D3 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		096595A02924F57100E725D3 /* HeaderDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDateView.swift; sourceTree = "<group>"; };
+		096595A22925D68D00E725D3 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				090B0823291E6AD50050F039 /* CategoryCardView.swift */,
+				096595A22925D68D00E725D3 /* CategoryHeaderView.swift */,
 				090B0825291E6AE20050F039 /* CategoryDetailView.swift */,
 				090B0827291E6AEB0050F039 /* CategoryAddView.swift */,
 				090B0829291E6AF80050F039 /* CategoryStatusView.swift */,
@@ -243,6 +246,7 @@
 				090B0801291E67900050F039 /* InsertCoinApp.swift in Sources */,
 				090B0834291E976B0050F039 /* Total.swift in Sources */,
 				090B082E291E6B0E0050F039 /* ExpenditureCardView.swift in Sources */,
+				096595A32925D68D00E725D3 /* CategoryHeaderView.swift in Sources */,
 				090B0828291E6AEB0050F039 /* CategoryAddView.swift in Sources */,
 				090B0824291E6AD50050F039 /* CategoryCardView.swift in Sources */,
 				090B0822291E6AC80050F039 /* HeaderView.swift in Sources */,

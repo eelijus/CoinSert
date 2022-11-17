@@ -25,10 +25,10 @@ struct CategoryGaugeView: View {
             } currentValueLabel: {
                 Text("")
             } minimumValueLabel: {
-                Text("\(getTotalMonthlyOutlay())")
+                Text("")
                     .foregroundColor(.black)
             } maximumValueLabel: {
-                Text("\(Int(category.budget))")
+                Text("")
                     .foregroundColor(.black)
             }
         }
@@ -36,13 +36,13 @@ struct CategoryGaugeView: View {
         .tint(gradient)
     }
     
-    func getTotalMonthlyOutlay() -> Int {
+    private func getTotalMonthlyOutlay() -> Int {
         let monthlyExpenditures = Array(category.expenditures.filter {
             getMonthByInt($0.date) == currentMonth
         })
-        
+
         var totalMonthlyOutlay: Double = 0
-        
+
         for i in 0..<monthlyExpenditures.count {
             if !monthlyExpenditures.isEmpty {
                 totalMonthlyOutlay += monthlyExpenditures[i].amount
@@ -50,7 +50,7 @@ struct CategoryGaugeView: View {
                 totalMonthlyOutlay = 0
             }
         }
-        
+
         return Int(totalMonthlyOutlay)
     }
 }
