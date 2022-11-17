@@ -19,7 +19,7 @@ struct CategoryCardView: View {
     var body: some View {
         HStack(spacing: 20) {
             NavigationLink {
-                CategoryDetailView(category: category, currentDate: $currentDate, currentMonth: $currentMonth)
+                CategoryDetailView(category: category, currentdate: $currentDate, currentmonth: $currentMonth)
             } label: {
                 HStack(spacing: 20) {
                     Text(category.icon)

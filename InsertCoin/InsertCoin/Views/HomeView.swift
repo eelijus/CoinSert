@@ -25,6 +25,7 @@ struct HomeView: View {
                 ScrollView {
                     ForEach(categories, id: \.id) { category in
                         CategoryCardView(category: category, currentDate: $currentDate, currentMonth: $currentMonth)
+                            .padding(.bottom, 5)
                     }
                 }
             }

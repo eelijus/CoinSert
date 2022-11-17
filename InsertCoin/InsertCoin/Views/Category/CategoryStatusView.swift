@@ -24,7 +24,6 @@ struct CategoryStatusView: View {
                 Text("☠️")
             }
         }
-        .frame(width: 50, height: 50)
         .font(.title)
     }
 }
