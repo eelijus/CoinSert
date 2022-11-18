@@ -25,10 +25,10 @@ struct CategoryCardView: View {
                     VStack {
                         CategoryStatusView(category: category)
                             .padding(.leading, 10)
-                        Text(String(getTotalMonthlyOutlay()))
-                            .font(.caption2)
-                            .foregroundColor(.gray)
-                            .frame(alignment: .center)
+//                        Text(String(getTotalMonthlyOutlay()))
+//                            .font(.caption2)
+//                            .foregroundColor(.gray)
+//                            .frame(alignment: .center)
                     }
                     VStack {
                         CategoryGaugeView(category: category, currentDate: $currentDate, currentMonth: $currentMonth)
@@ -45,10 +45,10 @@ struct CategoryCardView: View {
                         .sheet(isPresented: $isPresented) {
                             ExpenditureModalView(category: category, date: $currentDate)
                         }
-                        Text("\(Int(category.budget))")
-                            .font(.caption2)
-                            .foregroundColor(.gray)
-                            .frame(alignment: .center)
+//                        Text("\(Int(category.budget))")
+//                            .font(.caption2)
+//                            .foregroundColor(.gray)
+//                            .frame(alignment: .center)
                     }
 
                 }

@@ -38,23 +38,22 @@ struct CategoryHeaderView: View {
             VStack {
                 if !isEditing {
                     VStack(spacing: 5) {
-                        HStack(spacing: 20) {
-                            Text(category.icon)
+                        Text(category.icon)
                                 .font(.title)
-                            Text(category.name)
-                        }
+                        Text(category.name)
                         Text(String(Int(category.budget)))
                             .font(.title2)
                     }
                 } else {
-                    VStack {
-                        HStack(spacing: 20) {
-                            TextField(category.icon, text: $icon)
-                                .font(.title)
-                            TextField(category.name, text: $name)
-                        }
-                        TextField(String(category.budget), text: $budget)
+                    VStack(spacing: 5) {
+                        TextField(category.icon, text: $icon)
+                            .font(.title)
+                            .multilineTextAlignment(.center)
+                        TextField(category.name, text: $name)
+                            .multilineTextAlignment(.center)
+                        TextField(String(Int(category.budget)), text: $budget)
                             .font(.title2)
+                            .multilineTextAlignment(.center)
                     }
                 }
             Button(action: {

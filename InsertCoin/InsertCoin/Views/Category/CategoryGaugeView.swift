@@ -19,22 +19,35 @@ struct CategoryGaugeView: View {
 
 
     var body: some View {
-        VStack {
-            Gauge(value: Double(getTotalMonthlyOutlay()), in: 0...category.budget) {
-                Text("")
-            } currentValueLabel: {
-                Text("")
-            } minimumValueLabel: {
-                Text("")
-                    .foregroundColor(.black)
-            } maximumValueLabel: {
-                Text("")
-                    .foregroundColor(.black)
+        ZStack {
+            VStack {
+                Gauge(value: Double(getTotalMonthlyOutlay()), in: 0...category.budget) {
+                    Text("")
+                } currentValueLabel: {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("")
+                        .foregroundColor(.black)
+                } maximumValueLabel: {
+                    Text("")
+                        .foregroundColor(.black)
+                }
             }
+            .gaugeStyle(.linearCapacity)
+            .tint(gradient)
+            HStack(spacing: 5) {
+                    Text(String(getTotalMonthlyOutlay()))
+                    Text("/")
+                    Text(String(Int(category.budget)))
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
-        .gaugeStyle(.linearCapacity)
-        .tint(gradient)
-    }
+        .foregroundColor(.black)
+        .font(.system(size: 10))
+
+        }
+
+    
     
     private func getTotalMonthlyOutlay() -> Int {
         let monthlyExpenditures = Array(category.expenditures.filter {
