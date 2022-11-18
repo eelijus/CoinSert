@@ -52,6 +52,7 @@ struct HomeView: View {
 
 extension Color {
     static let headerColor = Color("HeaderColor")
+    static let categoryColor = Color("CategoryColor")
 }
 
 struct HomeView_Previews: PreviewProvider {

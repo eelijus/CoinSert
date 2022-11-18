@@ -39,7 +39,7 @@ struct CategoryAddView: View {
                         createCategory()
                         dismiss()
                     }
-                    .disabled(name == "")
+                    .disabled(name == "" || icon == "" || budget == "")
                 }
             }
         }
