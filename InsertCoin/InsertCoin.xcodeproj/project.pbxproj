@@ -28,6 +28,8 @@
 		0965959E2924F30200E725D3 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965959D2924F30200E725D3 /* DateUtils.swift */; };
 		096595A12924F57100E725D3 /* HeaderDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A02924F57100E725D3 /* HeaderDateView.swift */; };
 		096595A32925D68D00E725D3 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A22925D68D00E725D3 /* CategoryHeaderView.swift */; };
+		096595A52926101D00E725D3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A42926101D00E725D3 /* CategoryListView.swift */; };
+		096595A72926116400E725D3 /* CategoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A62926116400E725D3 /* CategoryUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		0965959D2924F30200E725D3 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		096595A02924F57100E725D3 /* HeaderDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDateView.swift; sourceTree = "<group>"; };
 		096595A22925D68D00E725D3 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
+		096595A42926101D00E725D3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		096595A62926116400E725D3 /* CategoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 			children = (
 				090B081B291E68690050F039 /* Migrator.swift */,
 				0965959D2924F30200E725D3 /* DateUtils.swift */,
+				096595A62926116400E725D3 /* CategoryUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				090B0823291E6AD50050F039 /* CategoryCardView.swift */,
 				096595A22925D68D00E725D3 /* CategoryHeaderView.swift */,
 				090B0825291E6AE20050F039 /* CategoryDetailView.swift */,
+				096595A42926101D00E725D3 /* CategoryListView.swift */,
 				090B0827291E6AEB0050F039 /* CategoryAddView.swift */,
 				090B0829291E6AF80050F039 /* CategoryStatusView.swift */,
 				090B082B291E6B040050F039 /* CategoryGaugeView.swift */,
@@ -253,7 +259,9 @@
 				0965959E2924F30200E725D3 /* DateUtils.swift in Sources */,
 				090B0813291E67CF0050F039 /* HomeView.swift in Sources */,
 				090B081C291E68690050F039 /* Migrator.swift in Sources */,
+				096595A52926101D00E725D3 /* CategoryListView.swift in Sources */,
 				090B0815291E67DE0050F039 /* Category.swift in Sources */,
+				096595A72926116400E725D3 /* CategoryUtils.swift in Sources */,
 				090B081E291E693E0050F039 /* Expenditure.swift in Sources */,
 				090B0832291E6B220050F039 /* ExpenditureModalView.swift in Sources */,
 				090B082C291E6B040050F039 /* CategoryGaugeView.swift in Sources */,
