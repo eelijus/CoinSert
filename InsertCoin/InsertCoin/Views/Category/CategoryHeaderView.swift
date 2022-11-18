@@ -36,18 +36,6 @@ struct CategoryHeaderView: View {
                 .fill(Color.categoryColor)
                 .frame(height: 200)
             VStack {
-                Button {
-                    isPresented = true
-                } label: {
-                    Text("💸")
-                        .font(.largeTitle)
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .offset(y: -45)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15))
-                .sheet(isPresented: $isPresented) {
-                    ExpenditureModalView(category: category, date: $currentDate)
-                }
                 if !isEditing {
                     VStack(spacing: 5) {
                         HStack(spacing: 20) {
@@ -100,8 +88,10 @@ struct CategoryHeaderView: View {
     }
 }
 
-//struct CategoryHeaderView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CategoryHeaderView(category: Category())
-//    }
-//}
+struct CategoryHeaderView_Previews: PreviewProvider {
+    
+    @State static var sampleDate: Date = Date()
+    static var previews: some View {
+        CategoryHeaderView(category: Category(), currentDate: $sampleDate)
+    }
+}

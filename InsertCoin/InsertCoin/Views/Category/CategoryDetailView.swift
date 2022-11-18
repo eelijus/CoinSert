@@ -39,6 +39,19 @@ struct CategoryDetailView: View {
                         }
                 }
             }
+            .navigationBarItems(trailing:
+                VStack {
+                    Button {
+                        isPresented = true
+                    } label: {
+                        Text("💸")
+                            .font(.largeTitle)
+                    }
+                    .sheet(isPresented: $isPresented) {
+                        ExpenditureModalView(category: category, date: $currentDate)
+                    }
+                }
+            )
     }
 }
 
