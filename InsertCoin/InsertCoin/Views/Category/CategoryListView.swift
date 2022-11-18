@@ -25,7 +25,6 @@ struct CategoryListView: View {
         })
         List {
             ForEach(Array(monthlyExpenditures.enumerated()), id: \.offset) { i, expenditure in
-                VStack {
                     if i == 0 || getDayFromDate(date: monthlyExpenditures[i - 1].date) != getDayFromDate(date: expenditure.date) {
                         HStack {
                             line
@@ -34,22 +33,20 @@ struct CategoryListView: View {
                             line
                         }
                     }
-                        ExpenditureCardView(expenditure: expenditure)
-                            .onTapGesture {
-                                selectedExpenditure = expenditure
-                                currentDate = expenditure.date
+                    ExpenditureCardView(expenditure: expenditure)
+                        .onTapGesture {
+                            selectedExpenditure = expenditure
+                            currentDate = expenditure.date
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button {
+                                minusExpenditure(category: category, minusAmount: expenditure.amount)
+                                deleteExpenditure(expenditure: expenditure)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
                             }
-                            .swipeActions(edge: .trailing) {
-                                Button {
-                                    minusExpenditure(category: category, minusAmount: expenditure.amount)
-                                    deleteExpenditure(expenditure: expenditure)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                                .tint(.red)
-                            }
-                }
- 
+                            .tint(.red)
+                        }
             }
             .listRowSeparator(.hidden)
 

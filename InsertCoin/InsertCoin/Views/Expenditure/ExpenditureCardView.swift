@@ -10,20 +10,30 @@ import SwiftUI
 struct ExpenditureCardView: View {
     
     var expenditure: Expenditure
-
+    
     var body: some View {
-        HStack {
-            VStack{
+        HStack(alignment: .top) {
+            Rectangle()
+                .fill(.black)
+                .frame(width: 3, height: 60)
+            VStack(alignment: .leading) {
+                Text(expenditure.date.formatted(date: .omitted, time: .shortened))
+                    .foregroundColor(.gray)
+                    .font(.caption2)
                 Text(expenditure.name)
-                Text(String(Int(expenditure.amount)))
-                    .font(.title2)
+                    .font(.system(size: 20))
+                    .frame(alignment: .center)
+                    .offset(y: 6)
             }
             Spacer()
-            VStack {
-//                Text(expenditure.date.formatted(date: .numeric, time: .omitted))
-                Text(expenditure.date.formatted(date: .omitted, time: .shortened))
-            }
+            Text(String(Int(expenditure.amount)))
+                .font(.system(size: 20, weight: .bold))
+                .foregroundColor(Color.red)
+                .frame(maxHeight: .infinity, alignment: .center)
+                .offset(y: -5)
         }
+        .background(Color.white) //전체 영역 터치 위에서
+
     }
 }
 
