@@ -23,8 +23,9 @@ struct CategoryListView: View {
         let monthlyExpenditures = Array(category.expenditures.filter {
             getMonthByInt($0.date) == currentMonth
         })
+        let sortedMonthlyExpenditures = monthlyExpenditures.sorted(by: { $0.date < $1.date })
         List {
-            ForEach(Array(monthlyExpenditures.enumerated()), id: \.offset) { i, expenditure in
+            ForEach(Array(sortedMonthlyExpenditures.enumerated()), id: \.offset) { i, expenditure in
                     if i == 0 || getDayFromDate(date: monthlyExpenditures[i - 1].date) != getDayFromDate(date: expenditure.date) {
                         HStack {
                             line
