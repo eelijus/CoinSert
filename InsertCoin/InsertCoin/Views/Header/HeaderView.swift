@@ -9,6 +9,8 @@ import SwiftUI
 import RealmSwift
 
 struct HeaderView: View {
+    
+    @State var progress: CGFloat = 0.5
 
     @ObservedResults(Category.self) var categories
     
@@ -23,16 +25,19 @@ struct HeaderView: View {
                 .frame(height: 200)
             VStack {
                 HeaderDateView(currentDate: $currentDate,  currentMonth: $currentMonth)
-                    .offset(x: 15, y: -70)
-                Text(String(getTotalOutlay()))
-                    .offset(x: 15, y: -50)
-                    .font(.largeTitle)
-                HStack {
-                    Text(String(getTotalBudget() - getTotalOutlay()))
-                        .offset(x:20)
-                    Spacer()
-                    Text(String(getTotalBudget()))
-                }
+                    .offset(x: 10)
+                SpeedoMeter(currentMonth: $currentMonth)
+                    .frame(width: 340)
+                    .offset(x: 10, y: -80)
+//                Text(String(getTotalOutlay()))
+//                    .offset(x: 15, y: -50)
+//                    .font(.largeTitle)
+//                HStack {
+//                    Text(String(getTotalBudget() - getTotalOutlay()))
+//                        .offset(x:20)
+//                    Spacer()
+//                    Text(String(getTotalBudget()))
+//                }
             }
             .offset(x: -10, y: 15)
 
@@ -40,7 +45,7 @@ struct HeaderView: View {
         .background(Color.headerColor)
     }
     
-    func getTotalBudget() -> Int {
+    private func getTotalBudget() -> Int {
         var totalBudget: Double = 0
         
         for i in 0..<categories.count {
@@ -49,7 +54,7 @@ struct HeaderView: View {
         return Int(totalBudget)
     }
     
-    func getTotalMonthlyOutlay(category: Category) -> Int {
+    private func getTotalMonthlyOutlay(category: Category) -> Int {
         let monthlyExpenditures = Array(category.expenditures.filter {
             getMonthByInt($0.date) == currentMonth
         })
@@ -67,15 +72,15 @@ struct HeaderView: View {
         return Int(totalMonthlyOutlay)
     }
     
-    func getTotalOutlay() -> Int {
-
-        var totalOutlay: Double = 0
-        
-        for i in 0..<categories.count {
-            totalOutlay += Double(getTotalMonthlyOutlay(category: categories[i]))
-        }
-        return Int(totalOutlay)
-    }
+//    func getTotalOutlay() -> Int {
+//
+//        var totalOutlay: Double = 0
+//        
+//        for i in 0..<categories.count {
+//            totalOutlay += Double(getTotalMonthlyOutlay(category: categories[i]))
+//        }
+//        return Int(totalOutlay)
+//    }
 }
 
 //struct HeaderView_Previews: PreviewProvider {

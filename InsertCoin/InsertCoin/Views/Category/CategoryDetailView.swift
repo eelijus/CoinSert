@@ -43,6 +43,7 @@ struct CategoryDetailView: View {
                 VStack {
                     Button {
                         isPresented = true
+                        currentDate = Date()
                     } label: {
                         Text("💸")
                             .font(.largeTitle)

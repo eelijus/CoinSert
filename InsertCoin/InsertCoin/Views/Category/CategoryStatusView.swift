@@ -11,25 +11,37 @@ import RealmSwift
 struct CategoryStatusView: View {
     
     @ObservedRealmObject var category: Category
+    @Binding var currentMonth: Int
 
     var body: some View {
         VStack {
-            if category.totalOutlay >= 0 && category.totalOutlay <= round((category.budget) * 0.4) {
+            if getTotalMonthlyOutlay() >= 0 && getTotalMonthlyOutlay() <= round((category.budget) * 0.4) {
                 Text("😎")
-            } else if category.totalOutlay > round(category.budget * 0.4) && category.totalOutlay <= round(category.budget * 0.8) {
+            } else if getTotalMonthlyOutlay() > round(category.budget * 0.4) && getTotalMonthlyOutlay() <= round(category.budget * 0.8) {
                 Text("🤔")
-            } else if category.totalOutlay > round(category.budget * 0.8) && category.totalOutlay < category.budget {
+            } else if getTotalMonthlyOutlay() > round(category.budget * 0.8) && getTotalMonthlyOutlay() < category.budget {
                 Text("🚨")
-            } else if category.totalOutlay >= category.budget {
+            } else if getTotalMonthlyOutlay() >= category.budget {
                 Text("☠️")
             }
         }
         .font(.title2)
     }
-}
+    
+    private func getTotalMonthlyOutlay() -> Double {
+        let monthlyExpenditures = Array(category.expenditures.filter {
+            getMonthByInt($0.date) == currentMonth
+        })
 
-struct CategoryStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryStatusView(category: Category())
+        var totalMonthlyOutlay: Double = 0
+
+        for i in 0..<monthlyExpenditures.count {
+            if !monthlyExpenditures.isEmpty {
+                totalMonthlyOutlay += monthlyExpenditures[i].amount
+            } else {
+                totalMonthlyOutlay = 0
+            }
+        }
+        return totalMonthlyOutlay
     }
 }

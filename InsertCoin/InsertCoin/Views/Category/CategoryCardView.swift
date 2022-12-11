@@ -23,7 +23,7 @@ struct CategoryCardView: View {
             } label: {
                 HStack(spacing: 20) {
                     VStack {
-                        CategoryStatusView(category: category)
+                        CategoryStatusView(category: category, currentMonth: $currentMonth)
                             .padding(.leading, 10)
 //                        Text(String(getTotalMonthlyOutlay()))
 //                            .font(.caption2)

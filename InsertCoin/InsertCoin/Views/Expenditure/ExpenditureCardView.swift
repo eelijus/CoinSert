@@ -13,9 +13,11 @@ struct ExpenditureCardView: View {
     
     var body: some View {
         HStack(alignment: .top) {
+            //카드 구분 바
             Rectangle()
                 .fill(.black)
                 .frame(width: 3, height: 60)
+            //지출 시간과 이름
             VStack(alignment: .leading) {
                 Text(expenditure.date.formatted(date: .omitted, time: .shortened))
                     .foregroundColor(.gray)
@@ -26,6 +28,7 @@ struct ExpenditureCardView: View {
                     .offset(y: 6)
             }
             Spacer()
+            //지출 양
             Text(String(Int(expenditure.amount)))
                 .font(.system(size: 20, weight: .bold))
                 .foregroundColor(Color.red)
