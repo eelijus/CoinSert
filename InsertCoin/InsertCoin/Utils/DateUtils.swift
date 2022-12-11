@@ -25,6 +25,7 @@ func isSameDay(date1: Date, date2: Date) -> Bool {
     return calendar.isDate(date1, inSameDayAs: date2)
 }
 
+//인자 : 날짜 / 반환 : 표식
 func getMonthByInt(_ date: Date) -> Int {
     let today = Calendar.current.dateComponents([.year, .month], from: Date())
     let selected = Calendar.current.dateComponents([.year, .month], from: date)
@@ -33,3 +34,24 @@ func getMonthByInt(_ date: Date) -> Int {
 }
 
 
+// 인자: 표식 / 반환 : 날짜
+func convertMonthIntToDate(_ monthInt: Int) -> Date {
+
+    let calendar = Calendar(identifier: .gregorian)
+    
+    let currentDateComponent = Calendar.current.dateComponents([.year, .month], from: Date())
+        
+    var resultYear: Int = currentDateComponent.year! + monthInt / 12
+    var resultMonth: Int = currentDateComponent.month! + monthInt % 12
+    
+    var resultDateComponent = Calendar.current.dateComponents([.year, .month], from: Date())
+    resultDateComponent.year = resultYear
+    resultDateComponent.month = resultMonth
+    
+    var resultDate: Date
+    
+    resultDate = Calendar.current.date(from: resultDateComponent)!
+    
+    return resultDate
+    
+}

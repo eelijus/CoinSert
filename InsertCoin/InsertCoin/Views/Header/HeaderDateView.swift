@@ -67,7 +67,7 @@ struct HeaderDateView: View {
         .padding(.horizontal)
     }
     
-    func extractStringfromDate(currentDate: Date) -> [String] {
+    private func extractStringfromDate(currentDate: Date) -> [String] {
         let formatter = DateFormatter()
         
         formatter.dateFormat = "YYYY MMMM"

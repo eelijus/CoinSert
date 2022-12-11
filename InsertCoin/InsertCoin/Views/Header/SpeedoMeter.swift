@@ -23,10 +23,26 @@ struct SpeedoMeter: View {
                     ForEach(1...60, id: \.self) { index in
                         let degree = CGFloat(index) * 3
                         Capsule()
-                            .fill(.white)
-                            .frame(width: 43, height: 4)
+                            .fill(.gray.opacity(0.25))
+                            .frame(width: 40, height: 4)
                             //x: x축과 평면을 앞뒤로 기울임. 절대값이 커질수록 더 많이 기울겠지? y: 시계방향(-)/반시계방향(+)으로 기울어짐
-                            .offset(x: -(size.width - 50) / 2, y: 4)
+                            .offset(x: -(size.width - 40) / 2, y: 4)
+                            .rotationEffect(.init(degrees: degree))
+                            .background(.red)
+                    }
+                
+            }
+            .frame(width: size.width, height: size.height, alignment: .bottom)
+            
+            ZStack {
+                //기본 게이지 위에 덮어질 반원 모양 색상 게이지
+                    ForEach(1...60, id: \.self) { index in
+                        let degree = CGFloat(index) * 3
+                        Capsule()
+                            .fill(.white)
+                            .frame(width: 40, height: 4)
+                            //x: x축과 평면을 앞뒤로 기울임. 절대값이 커질수록 더 많이 기울겠지? y: 시계방향(-)/반시계방향(+)으로 기울어짐
+                            .offset(x: -(size.width - 40) / 2, y: 4)
                             .rotationEffect(.init(degrees: degree))
                             .background(.red)
                     }
@@ -70,7 +86,6 @@ struct SpeedoMeter: View {
                 })
                 .offset(x: 10, y: 20)
             })
-            .offset(y: 10)
         }
     }
 
@@ -115,6 +130,11 @@ struct SpeedoMeter: View {
 
     //지출 비율 : 월 단위 모든 지출 / 총 예산
     private func getOutlayRatio() -> CGFloat {
-        return getTotalOutlay() / getTotalBudget()
+        if getTotalBudget() != 0 && getTotalOutlay() != 0 {
+            return getTotalOutlay() / getTotalBudget()
+        }
+        else {
+            return 0
+        }
     }
 }

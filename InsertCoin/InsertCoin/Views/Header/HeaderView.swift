@@ -26,9 +26,6 @@ struct HeaderView: View {
             VStack {
                 HeaderDateView(currentDate: $currentDate,  currentMonth: $currentMonth)
                     .offset(x: 10)
-                SpeedoMeterGray()
-                    .frame(width: 340)
-                    .offset(x: 162, y: 178.5)
                 SpeedoMeter(currentMonth: $currentMonth)
                     .frame(width: 340)
                     .offset(x: 9.3, y: -100)

@@ -41,13 +41,10 @@ struct CategoryDetailView: View {
             }
             .navigationBarItems(trailing:
                 VStack {
-                    Button {
-                        isPresented = true
-                        //월을 변경했을 시 지출 생성 시간이 현재 월로 고정되게 하는 코드
-                        var calendar = Calendar(identifier: .gregorian)
-                        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
-                        component.month = currentMonth
-                        currentDate = Calendar.current.date(from: component) ?? Date()
+                Button {
+                    isPresented = true
+                    //월을 변경했을 시 지출 생성 시간이 현재 월로 고정되게 하는 코드
+                    currentDate = convertMonthIntToDate(currentMonth)
                     } label: {
                         Text("💸")
                             .font(.largeTitle)
@@ -57,6 +54,17 @@ struct CategoryDetailView: View {
                     }
                 }
             )
+    }
+    
+    private func extractStringfromDate(currentDate: Date) -> [String] {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "YYYY MMMM"
+        formatter.locale = Locale(identifier: "en")
+        
+        let dateString = formatter.string(from: Calendar.current.date(byAdding: .month, value: currentMonth, to: Date())!)
+        
+        return dateString.components(separatedBy: " ")
     }
 }
 
