@@ -26,18 +26,12 @@ struct HeaderView: View {
             VStack {
                 HeaderDateView(currentDate: $currentDate,  currentMonth: $currentMonth)
                     .offset(x: 10)
+                SpeedoMeterGray()
+                    .frame(width: 340)
+                    .offset(x: 162, y: 178.5)
                 SpeedoMeter(currentMonth: $currentMonth)
                     .frame(width: 340)
-                    .offset(x: 10, y: -100)
-//                Text(String(getTotalOutlay()))
-//                    .offset(x: 15, y: -50)
-//                    .font(.largeTitle)
-//                HStack {
-//                    Text(String(getTotalBudget() - getTotalOutlay()))
-//                        .offset(x:20)
-//                    Spacer()
-//                    Text(String(getTotalBudget()))
-//                }
+                    .offset(x: 9.3, y: -100)
             }
             .offset(x: -10, y: 15)
 

@@ -32,6 +32,7 @@
 		096595A72926116400E725D3 /* CategoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A62926116400E725D3 /* CategoryUtils.swift */; };
 		098EADF629449B79004D364F /* SpeedoMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EADF529449B79004D364F /* SpeedoMeter.swift */; };
 		098EADF82944A0B7004D364F /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EADF72944A0B7004D364F /* Indicator.swift */; };
+		09B542CA2945AA2600A710B5 /* SpeedoMeterGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B542C92945AA2600A710B5 /* SpeedoMeterGray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		096595A62926116400E725D3 /* CategoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUtils.swift; sourceTree = "<group>"; };
 		098EADF529449B79004D364F /* SpeedoMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedoMeter.swift; sourceTree = "<group>"; };
 		098EADF72944A0B7004D364F /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
+		09B542C92945AA2600A710B5 /* SpeedoMeterGray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedoMeterGray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				096595A02924F57100E725D3 /* HeaderDateView.swift */,
 				098EADF529449B79004D364F /* SpeedoMeter.swift */,
 				098EADF72944A0B7004D364F /* Indicator.swift */,
+				09B542C92945AA2600A710B5 /* SpeedoMeterGray.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				090B0828291E6AEB0050F039 /* CategoryAddView.swift in Sources */,
 				090B0824291E6AD50050F039 /* CategoryCardView.swift in Sources */,
 				090B0822291E6AC80050F039 /* HeaderView.swift in Sources */,
+				09B542CA2945AA2600A710B5 /* SpeedoMeterGray.swift in Sources */,
 				0965959E2924F30200E725D3 /* DateUtils.swift in Sources */,
 				090B0813291E67CF0050F039 /* HomeView.swift in Sources */,
 				090B081C291E68690050F039 /* Migrator.swift in Sources */,

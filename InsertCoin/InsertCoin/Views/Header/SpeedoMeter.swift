@@ -17,29 +17,22 @@ struct SpeedoMeter: View {
     var body: some View {
         GeometryReader { proxy in
             let size = proxy.size
-
+            
             ZStack {
-                //반원 모양 배경 게이지
-                //캡슐을 180도로 iterate 했을 뿐
-//                ForEach(1...60, id: \.self) { index in
-//                    let degree = CGFloat(index) * 3
-//                    Capsule()
-//                        .fill(.gray.opacity(0.25))
-//                        .frame(width: 40, height: 4)
-//                        .offset(x: -(size.width - 40) / 2, y: 3)
-//                        .rotationEffect(.init(degrees: degree))
-//                }
                 //기본 게이지 위에 덮어질 반원 모양 색상 게이지
-                ForEach(1...60, id: \.self) { index in
-                    let degree = CGFloat(index) * 3
-                    Capsule()
-                        .fill(degree < 54 ? .green.opacity(0.5) : (degree >= 54 && degree < 130 ? .yellow.opacity(0.5) : .red.opacity(0.5)))
-                        .frame(width: 40, height: 4)
-                        //x: x축과 평면을 앞뒤로 기울임. 값이 커질수록 더 많이 기울겠지? y: 시계방향(-)/반시계방향(+)으로 기울어짐
-                        .offset(x: -(size.width - 50) / 2, y: 4)
-                        .rotationEffect(.init(degrees: degree))
-                }
-
+                    ForEach(1...60, id: \.self) { index in
+                        let degree = CGFloat(index) * 3
+                        Capsule()
+                            .fill(.white)
+//                            .fill(degree < 36 ? Color.green.opacity(0.5) : (degree >= 36 && degree < 72 ? Color.greenToYellow.opacity(0.5) : (degree >= 72 && degree < 108 ? Color.yellow.opacity(0.5) : (degree >= 108 && degree < 144 ? Color.yellowToRed.opacity(0.5) : Color.red)))
+                            
+                            .frame(width: 43, height: 4)
+                            //x: x축과 평면을 앞뒤로 기울임. 절대값이 커질수록 더 많이 기울겠지? y: 시계방향(-)/반시계방향(+)으로 기울어짐
+                            .offset(x: -(size.width - 50) / 2, y: 4)
+                            .rotationEffect(.init(degrees: degree))
+                            .background(.red)
+                    }
+                
             }
             .frame(width: size.width, height: size.height, alignment: .bottom)
             //masking for updating progress and animation
@@ -81,6 +74,7 @@ struct SpeedoMeter: View {
                 .offset(x: 10, y: 20)
             })
             .offset(y: 10)
+
 
 
         }
