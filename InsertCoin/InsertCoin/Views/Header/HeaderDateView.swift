@@ -44,9 +44,11 @@ struct HeaderDateView: View {
                     Text(dateInfo[1])
                         .font(.title2)
                         .foregroundColor(.black)
+                        .offset(x: 3)
                 }
 
             }
+            .offset(y: -10)
             Button {
                 currentMonth += 1
                 guard let newDate = calendar.date(

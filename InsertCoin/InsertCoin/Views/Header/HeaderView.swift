@@ -28,7 +28,7 @@ struct HeaderView: View {
                     .offset(x: 10)
                 SpeedoMeter(currentMonth: $currentMonth)
                     .frame(width: 340)
-                    .offset(x: 10, y: -80)
+                    .offset(x: 10, y: -100)
 //                Text(String(getTotalOutlay()))
 //                    .offset(x: 15, y: -50)
 //                    .font(.largeTitle)
