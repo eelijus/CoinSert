@@ -24,8 +24,6 @@ struct SpeedoMeter: View {
                         let degree = CGFloat(index) * 3
                         Capsule()
                             .fill(.white)
-//                            .fill(degree < 36 ? Color.green.opacity(0.5) : (degree >= 36 && degree < 72 ? Color.greenToYellow.opacity(0.5) : (degree >= 72 && degree < 108 ? Color.yellow.opacity(0.5) : (degree >= 108 && degree < 144 ? Color.yellowToRed.opacity(0.5) : Color.red)))
-                            
                             .frame(width: 43, height: 4)
                             //x: x축과 평면을 앞뒤로 기울임. 절대값이 커질수록 더 많이 기울겠지? y: 시계방향(-)/반시계방향(+)으로 기울어짐
                             .offset(x: -(size.width - 50) / 2, y: 4)
@@ -69,14 +67,10 @@ struct SpeedoMeter: View {
                             .offset(y: -25)
                     }
                     .offset(x: -10, y: 10)
-
                 })
                 .offset(x: 10, y: 20)
             })
             .offset(y: 10)
-
-
-
         }
     }
 
@@ -95,7 +89,6 @@ struct SpeedoMeter: View {
                 totalMonthlyOutlay = 0
             }
         }
-
         return totalMonthlyOutlay
     }
 

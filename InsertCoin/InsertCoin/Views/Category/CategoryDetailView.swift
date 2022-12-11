@@ -43,7 +43,11 @@ struct CategoryDetailView: View {
                 VStack {
                     Button {
                         isPresented = true
-                        currentDate = Date()
+                        //월을 변경했을 시 지출 생성 시간이 현재 월로 고정되게 하는 코드
+                        var calendar = Calendar(identifier: .gregorian)
+                        var component = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+                        component.month = currentMonth
+                        currentDate = Calendar.current.date(from: component) ?? Date()
                     } label: {
                         Text("💸")
                             .font(.largeTitle)
