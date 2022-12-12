@@ -20,49 +20,52 @@ struct HeaderDateView: View {
     
     var body: some View {
         HStack(spacing: 30) {
-            Button {
-                currentMonth -= 1
-                guard let newDate = calendar.date(
-                    byAdding: .weekOfMonth,
-                    value: -1,
-                    to:  currentDate
-                ) else {
-                    return
+            Image(systemName: "chevron.left")
+                .foregroundColor(.yellow)
+                .onTapGesture {
+                    withAnimation{
+                        currentMonth -= 1
+    
+                    guard let newDate = calendar.date(
+                        byAdding: .weekOfMonth,
+                        value: -1,
+                        to:  currentDate
+                    ) else {
+                        return
+                    }
+                    currentDate = newDate
+                    }
                 }
-                currentDate = newDate
-            } label: {
-                Image(systemName: "chevron.left")
-                    .foregroundColor(.yellow)
-            }
             VStack {
                 Text(dateInfo[0])
                     .font(.caption)
-                Button {
+                Text(dateInfo[1])
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    .offset(x: 3)
+            }
+            .onTapGesture {
+                withAnimation {
                     currentMonth = 0
                     currentDate = Date()
-                } label: {
-                    Text(dateInfo[1])
-                        .font(.title2)
-                        .foregroundColor(.black)
-                        .offset(x: 3)
                 }
-
             }
             .offset(y: -10)
-            Button {
-                currentMonth += 1
-                guard let newDate = calendar.date(
-                    byAdding: .weekOfMonth,
-                    value: 1,
-                    to: currentDate
-                ) else {
-                    return
+            Image(systemName: "chevron.right")
+                .foregroundColor(.yellow)
+                .onTapGesture {
+                    withAnimation {
+                        currentMonth += 1
+                        guard let newDate = calendar.date(
+                            byAdding: .weekOfMonth,
+                            value: 1,
+                            to: currentDate
+                        ) else {
+                            return
+                        }
+                        currentDate = newDate
+                    }
                 }
-                currentDate = newDate
-            } label: {
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.yellow)
-            }
         }
         .padding(.horizontal)
     }
@@ -80,9 +83,3 @@ struct HeaderDateView: View {
     
     
 }
-
-//struct HeaderDateView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HeaderDateView()
-//    }
-//}

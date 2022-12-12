@@ -18,7 +18,7 @@ struct HeaderView: View {
     @Binding var currentMonth: Int
     
     var body: some View {
-        
+                
         ZStack {
             Rectangle()
                 .fill(Color.headerColor)

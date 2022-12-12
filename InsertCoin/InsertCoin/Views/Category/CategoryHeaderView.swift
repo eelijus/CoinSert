@@ -87,10 +87,4 @@ struct CategoryHeaderView: View {
     }
 }
 
-struct CategoryHeaderView_Previews: PreviewProvider {
-    
-    @State static var sampleDate: Date = Date()
-    static var previews: some View {
-        CategoryHeaderView(category: Category(), currentDate: $sampleDate)
-    }
-}
+
