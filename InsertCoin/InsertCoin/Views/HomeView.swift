@@ -30,7 +30,8 @@ struct HomeView: View {
                 }
             }
             .navigationBarItems(trailing: NavigationLink(
-                destination: CategoryAddView()
+                destination: CategoryAddView()                .navigationViewStyle(StackNavigationViewStyle())
+
             ) {
                Text("🤑")
                     .font(.title)

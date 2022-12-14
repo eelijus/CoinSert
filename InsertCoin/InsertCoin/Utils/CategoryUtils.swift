@@ -8,9 +8,6 @@
 import Foundation
 import RealmSwift
 
-
-
-
 func delete(category: Category){
     do {
         let realm = try Realm()

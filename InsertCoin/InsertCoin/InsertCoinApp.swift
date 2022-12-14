@@ -12,6 +12,7 @@ struct InsertCoinApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
