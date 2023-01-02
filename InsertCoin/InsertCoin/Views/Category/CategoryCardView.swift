@@ -52,11 +52,11 @@ struct CategoryCardView: View {
 //                            .foregroundColor(.gray)
 //                            .frame(alignment: .center)
                     }
-
                 }
             }
         }
     }
+
     
     func getTotalMonthlyOutlay() -> Int {
         let monthlyExpenditures = Array(category.expenditures.filter {

@@ -31,7 +31,6 @@
 		096595A52926101D00E725D3 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A42926101D00E725D3 /* CategoryListView.swift */; };
 		096595A72926116400E725D3 /* CategoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096595A62926116400E725D3 /* CategoryUtils.swift */; };
 		098EADF629449B79004D364F /* SpeedoMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EADF529449B79004D364F /* SpeedoMeter.swift */; };
-		098EADF82944A0B7004D364F /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098EADF72944A0B7004D364F /* Indicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +57,6 @@
 		096595A42926101D00E725D3 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		096595A62926116400E725D3 /* CategoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUtils.swift; sourceTree = "<group>"; };
 		098EADF529449B79004D364F /* SpeedoMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedoMeter.swift; sourceTree = "<group>"; };
-		098EADF72944A0B7004D364F /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +169,6 @@
 				090B0821291E6AC80050F039 /* HeaderView.swift */,
 				096595A02924F57100E725D3 /* HeaderDateView.swift */,
 				098EADF529449B79004D364F /* SpeedoMeter.swift */,
-				098EADF72944A0B7004D364F /* Indicator.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -254,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				090B082A291E6AF80050F039 /* CategoryStatusView.swift in Sources */,
-				098EADF82944A0B7004D364F /* Indicator.swift in Sources */,
 				096595A12924F57100E725D3 /* HeaderDateView.swift in Sources */,
 				090B0801291E67900050F039 /* InsertCoinApp.swift in Sources */,
 				090B0834291E976B0050F039 /* Total.swift in Sources */,
@@ -412,6 +408,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,6 +440,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

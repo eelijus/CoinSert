@@ -30,7 +30,8 @@ struct HomeView: View {
                 }
             }
             .navigationBarItems(trailing: NavigationLink(
-                destination: CategoryAddView()                .navigationViewStyle(StackNavigationViewStyle())
+                destination: CategoryAddView()
+                    .navigationViewStyle(StackNavigationViewStyle())
 
             ) {
                Text("🤑")
@@ -54,11 +55,8 @@ struct HomeView: View {
 extension Color {
     static let headerColor = Color("HeaderColor")
     static let categoryColor = Color("CategoryColor")
-    static let green = Color("Green")
-    static let greenToYellow = Color("GreenToYellow")
-    static let yellow = Color("Yellow")
-    static let yellowToRed = Color("YellowToRed")
-    static let red = Color("Red")
+    static let customGreen = Color("CustomGreen")
+    static let customYellow = Color("CustomYellow")
 }
 
 struct HomeView_Previews: PreviewProvider {
