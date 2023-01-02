@@ -18,10 +18,14 @@ struct ExpenditureModalView: View {
     @State var name: String = ""
     @Binding var date: Date
     @State var amount: String = ""
+    //expenditure 객체의 멤버가 아니나 해당 뷰의 로직에서 필요한 변수
+    @Binding var month: Int
     
-    init(category: Category, date: Binding<Date>, expenditrueToEdit: Expenditure? = nil) {
+    init(category: Category, date: Binding<Date>, month: Binding<Int>, expenditrueToEdit: Expenditure? = nil) {
         self.category = category
         self._date = date
+        //해당 뷰의 로직에서 month의 값은 변경하지 않는다.
+        self._month = month
         self.expenditrueToEdit = expenditrueToEdit
         
         if let expenditrueToEdit = expenditrueToEdit {
@@ -50,9 +54,10 @@ struct ExpenditureModalView: View {
                             Text("Date")
                                 .foregroundColor(.gray)
                             Spacer()
-                            DatePicker("", selection: $date)
-                                .datePickerStyle(.compact)
-                                .labelsHidden()
+                                //바인딩디어있는 날짜가 DatePicker에 표시된다,
+                                DatePicker("", selection: $date)
+                                    .datePickerStyle(.compact)
+                                    .labelsHidden()
                         }
                     } header: {
                         Text("💸")
@@ -122,6 +127,17 @@ struct ExpenditureModalView: View {
             print(error)
         }
     }
+    
+//    private func extractStringfromDate(currentDate: Date) -> [String] {
+//        let formatter = DateFormatter()
+//
+//        formatter.dateFormat = "YYYY MMMM"
+//        formatter.locale = Locale(identifier: "en")
+//
+//        let dateString = formatter.string(from: Calendar.current.date(byAdding: .month, value: currentMonth, to: Date())!)
+//
+//        return dateString.components(separatedBy: " ")
+//    }
     
     private func minusExpenditure(minusAmount: Double) {
         do {

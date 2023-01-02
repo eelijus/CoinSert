@@ -52,7 +52,7 @@ struct CategoryListView: View {
             .listRowSeparator(.hidden)
 
             .sheet(item: $selectedExpenditure) { expenditure in
-                ExpenditureModalView(category: category, date: $currentDate, expenditrueToEdit: expenditure)
+                ExpenditureModalView(category: category, date: $currentDate, month: $currentMonth, expenditrueToEdit: expenditure)
             }
             
         }

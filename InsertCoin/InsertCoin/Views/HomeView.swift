@@ -58,9 +58,3 @@ extension Color {
     static let customGreen = Color("CustomGreen")
     static let customYellow = Color("CustomYellow")
 }
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(currentDate: Date())
-    }
-}

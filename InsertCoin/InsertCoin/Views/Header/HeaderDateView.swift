@@ -20,52 +20,39 @@ struct HeaderDateView: View {
     
     var body: some View {
         HStack(spacing: 30) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(.yellow)
-                .onTapGesture {
-                    withAnimation{
-                        currentMonth -= 1
-    
-                    guard let newDate = calendar.date(
-                        byAdding: .weekOfMonth,
-                        value: -1,
-                        to:  currentDate
-                    ) else {
-                        return
-                    }
-                    currentDate = newDate
-                    }
+            Button(action: {
+                withAnimation{
+                    currentMonth -= 1
                 }
-            VStack {
-                Text(dateInfo[0])
-                    .font(.caption)
-                Text(dateInfo[1])
-                    .font(.title2)
-                    .foregroundColor(.black)
-                    .offset(x: 3)
-            }
-            .onTapGesture {
+            }, label: {
+                Image(systemName: "chevron.left")
+                    .foregroundColor(.yellow)
+            })
+            Button(action: {
                 withAnimation {
                     currentMonth = 0
                     currentDate = Date()
                 }
-            }
-            .offset(y: -10)
-            Image(systemName: "chevron.right")
-                .foregroundColor(.yellow)
-                .onTapGesture {
-                    withAnimation {
-                        currentMonth += 1
-                        guard let newDate = calendar.date(
-                            byAdding: .weekOfMonth,
-                            value: 1,
-                            to: currentDate
-                        ) else {
-                            return
-                        }
-                        currentDate = newDate
-                    }
+            }, label: {
+                VStack {
+                    Text(dateInfo[0])
+                        .font(.caption)
+                        .foregroundColor(.black)
+                    Text(dateInfo[1])
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        .offset(x: 3)
                 }
+                .offset(y: -10)
+            })
+            Button(action: {
+                withAnimation {
+                    currentMonth += 1
+                }
+            }, label: {
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.yellow)
+            })
         }
         .padding(.horizontal)
     }

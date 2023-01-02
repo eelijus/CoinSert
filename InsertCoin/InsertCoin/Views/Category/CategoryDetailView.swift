@@ -43,14 +43,19 @@ struct CategoryDetailView: View {
                 VStack {
                 Button {
                     isPresented = true
-                    //월을 변경했을 시 지출 생성 시간이 현재 월로 고정되게 하는 코드
-                    currentDate = convertMonthIntToDate(currentMonth)
+                    //지출을 추가하는 날짜가 현재 날짜라면 해당 월, 일, 시간으로 지출을 생성하고
+                    //현재 날짜가 아닌 날짜에서 추가하면 생성 시간을 해당 월, 1일, 12:00am으로 고정되게 하는 코드
+                    if currentMonth == getMonthByInt(Date()) {
+                        currentDate = Date()
+                    } else {
+                        currentDate = convertMonthIntToDate(currentMonth)
+                    }
                     } label: {
                         Text("💸")
                             .font(.largeTitle)
                     }
                     .sheet(isPresented: $isPresented) {
-                        ExpenditureModalView(category: category, date: $currentDate)
+                        ExpenditureModalView(category: category, date: $currentDate, month: $currentMonth)
                     }
                 }
             )
