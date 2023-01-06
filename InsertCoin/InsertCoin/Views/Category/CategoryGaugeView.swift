@@ -36,9 +36,9 @@ struct CategoryGaugeView: View {
             .gaugeStyle(.linearCapacity)
             .tint(gradient)
             HStack(spacing: 5) {
-                    Text(String(getTotalMonthlyOutlay()))
-                    Text("/")
-                    Text(String(Int(category.budget)))
+                Text(intToCrrencyDecimal(number: getTotalMonthlyOutlay()))
+                Text("/")
+                Text(doubleToCrrencyDecimal(number: category.budget))
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }

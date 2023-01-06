@@ -26,7 +26,7 @@ struct CategoryHeaderView: View {
         
         self._name = State(initialValue: category.name)
         self._icon = State(initialValue: category.icon)
-        self._budget = State(initialValue: String(category.budget))
+        self._budget = State(initialValue: doubleToCrrencyDecimal(number: category.budget))
     }
 
     
@@ -41,7 +41,7 @@ struct CategoryHeaderView: View {
                         Text(category.icon)
                                 .font(.title)
                         Text(category.name)
-                        Text(String(Int(category.budget)))
+                        Text(doubleToCrrencyDecimal(number: category.budget))
                             .font(.title2)
                     }
                 } else {
@@ -51,7 +51,7 @@ struct CategoryHeaderView: View {
                             .multilineTextAlignment(.center)
                         TextField(category.name, text: $name)
                             .multilineTextAlignment(.center)
-                        TextField(String(Int(category.budget)), text: $budget)
+                        TextField(doubleToCrrencyDecimal(number: category.budget), text: $budget)
                             .font(.title2)
                             .multilineTextAlignment(.center)
                     }
@@ -78,7 +78,7 @@ struct CategoryHeaderView: View {
             try realm.write {
                 updatedCategory.name = name
                 updatedCategory.icon = icon
-                updatedCategory.budget = Double(budget) ?? 0
+                updatedCategory.budget = Double(budget) ?? category.budget
             }
         }
         catch {

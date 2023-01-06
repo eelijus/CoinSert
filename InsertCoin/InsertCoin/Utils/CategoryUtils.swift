@@ -48,3 +48,21 @@ func minusExpenditure(category: Category, minusAmount: Double) {
         print(error)
     }
 }
+
+func intToCrrencyDecimal(number: Int) -> String{
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    
+    let result = numberFormatter.string(from: NSNumber(value: number))!
+    
+    return result
+}
+
+func doubleToCrrencyDecimal(number: Double) -> String{
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    
+    let result = numberFormatter.string(from: NSNumber(value: number))!
+    
+    return result
+}
